@@ -1,0 +1,51 @@
+{
+	"name": "forum-dicoding-expert",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"lint": "eslint .",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@chakra-ui/icons": "^2.1.1",
+		"@chakra-ui/react": "^2.8.2",
+		"@emotion/react": "^11.11.3",
+		"@emotion/styled": "^11.11.0",
+		"@reduxjs/toolkit": "^2.0.1",
+		"@testing-library/jest-dom": "^5.17.0",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^13.5.0",
+		"axios": "^1.7.7",
+		"framer-motion": "^10.17.9",
+		"html-react-parser": "^5.0.11",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"react-icons": "^5.0.1",
+		"react-redux": "^8.1.3",
+		"react-redux-loading-bar": "^5.0.8",
+		"react-router-dom": "^6.21.1",
+		"react-scripts": "5.0.1",
+		"redux-toolkit": "^1.1.2"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.23.8",
+		"@eslint/js": "^9.9.0",
+		"@types/react": "^18.3.3",
+		"@types/react-dom": "^18.3.0",
+		"@vitejs/plugin-react-swc": "^3.5.0",
+		"cypress": "^13.6.2",
+		"eslint": "^9.9.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-plugin-cypress": "^2.15.1",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-jsx-a11y": "^6.8.0",
+		"eslint-plugin-react": "^7.35.0",
+		"eslint-plugin-react-hooks": "^5.1.0-rc.0",
+		"eslint-plugin-react-refresh": "^0.4.9",
+		"globals": "^15.9.0",
+		"vite": "^5.4.1"
+	}
+}
