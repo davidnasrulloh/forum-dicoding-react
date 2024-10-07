@@ -2,8 +2,8 @@ import { hideLoading, showLoading } from "react-redux-loading-bar";
 import authApi from "../../services/authApi";
 
 const ActionType = {
-	RECEIVE_USERS: "RECEIVE_USERS",
-	ERROR_RECEIVE_USERS: "ERROR_RECEIVE_USERS",
+	RECEIVE_USERS: "users/receive",
+	ERROR_RECEIVE_USERS: "users/errorReceive",
 };
 
 const receiveUsersActionCreator = (users) => ({

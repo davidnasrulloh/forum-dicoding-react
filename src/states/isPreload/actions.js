@@ -3,7 +3,7 @@ import { setAuthUser } from "../authUser/actions";
 import authApi from "../../services/authApi";
 
 const ActionType = {
-	SET_IS_PRELOAD: "SET_IS_PRELOAD",
+	SET_IS_PRELOAD: "isPreload/set",
 };
 
 function setIsPreload(isPreload) {

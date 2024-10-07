@@ -21,11 +21,11 @@ import {
 export default function HomePage() {
 	const [filter, setFilter] = useState("");
 	const dispatch = useDispatch();
-	const {
-		threads = [],
-		users = [],
-		authUser,
-	} = useSelector((states) => states);
+
+	const authUser = useSelector((state) => state.authUser);
+	const threads = useSelector((state) => state.threads);
+	const users = useSelector((state) => state.users);
+
 	const categories = new Set(threads.map((thread) => thread.category));
 
 	useEffect(() => {

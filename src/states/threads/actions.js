@@ -2,11 +2,11 @@ import { hideLoading, showLoading } from "react-redux-loading-bar";
 import threadApi from "../../services/threadApi";
 
 const ActionType = {
-	RECEIVE_THREADS: "RECEIVE_THREADS",
-	CREATE_THREAD: "CREATE_THREAD",
-	UP_VOTE_THREAD: "UP_VOTE_THREAD",
-	DOWN_VOTE_THREAD: "DOWN_VOTE_THREAD",
-	NETURALIZE_VOTE_THREAD: "NETURALIZE_VOTE_THREAD",
+	RECEIVE_THREADS: "threads/receive",
+	CREATE_THREAD: "threads/create",
+	UP_VOTE_THREAD: "threads/upVote",
+	DOWN_VOTE_THREAD: "threads/downVote",
+	NETURALIZE_VOTE_THREAD: "threads/neutralizeVote",
 };
 
 const receiveThreadsActionCreator = (threads) => ({

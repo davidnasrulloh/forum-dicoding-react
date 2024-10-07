@@ -3,14 +3,14 @@ import threadApi from "../../../services/threadApi";
 import commentApi from "../../../services/commentApi";
 
 const ActionType = {
-	RECEIVE_THREAD_DETAIL: "RECEIVE_THREAD_DETAIL",
-	UP_VOTE_THREAD_DETAIL: "UP_VOTE_THREAD_DETAIL",
-	DOWN_VOTE_THREAD_DETAIL: "DOWN_VOTE_THREAD_DETAIL",
-	NEUTRALIZE_VOTE_THREAD_DETAIL: "NEUTRALIZE_VOTE_THREAD_DETAIL",
-	CREATE_COMMENT: "CREATE_COMMENT",
-	UP_VOTE_COMMENT: "UP_VOTE_COMMENT",
-	DOWN_VOTE_COMMENT: "DOWN_VOTE_COMMENT",
-	NEUTRALIZE_VOTE_COMMENT: "NEUTRALIZE_VOTE_COMMENT",
+	RECEIVE_THREAD_DETAIL: "threadDetail/receive",
+	UP_VOTE_THREAD_DETAIL: "threadDetail/upVote",
+	DOWN_VOTE_THREAD_DETAIL: "threadDetail/downVote",
+	NEUTRALIZE_VOTE_THREAD_DETAIL: "threadDetail/neutralizeVote",
+	CREATE_COMMENT: "comment/create",
+	UP_VOTE_COMMENT: "comment/upVote",
+	DOWN_VOTE_COMMENT: "comment/downVote",
+	NEUTRALIZE_VOTE_COMMENT: "comment/neutralizeVote",
 };
 
 function receiveThreadDetailActionCreator(threadDetail) {

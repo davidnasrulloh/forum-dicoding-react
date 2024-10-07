@@ -2,7 +2,7 @@ import { hideLoading, showLoading } from "react-redux-loading-bar";
 import leaderboardApi from "../../services/leaderboardApi";
 
 const ActionType = {
-	RECEIVE_LEADERBOARDS: "RECEIVE_LEADERBOARDS",
+	RECEIVE_LEADERBOARDS: "leaderboards/receive",
 };
 
 const receiveLeaderboardsActionCreator = (leaderboards) => ({
