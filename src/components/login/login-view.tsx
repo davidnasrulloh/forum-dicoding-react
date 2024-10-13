@@ -84,6 +84,7 @@ export default function LoginInputView() {
 							<Input
 								type="email"
 								bg="white"
+								placeholder="Email"
 								borderColor="gray.300"
 								size="md"
 								borderRadius="md"
@@ -115,6 +116,7 @@ export default function LoginInputView() {
 							<Input
 								type="password"
 								bg="white"
+								placeholder="Password"
 								borderColor="gray.300"
 								size="md"
 								borderRadius="md"
