@@ -107,6 +107,7 @@ export default function RegisterView() {
 							</FormLabel>
 							<Input
 								type="email"
+								placeholder="Email"
 								bg={
 									colorMode === "dark"
 										? "gray.600"
@@ -152,6 +153,7 @@ export default function RegisterView() {
 								</Button>
 							</HStack>
 							<Input
+								placeholder="Password"
 								type="password"
 								bg={
 									colorMode === "dark"

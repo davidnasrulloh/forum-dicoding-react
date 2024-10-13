@@ -42,18 +42,18 @@ export default function ThreadDetailView({
 					downVotesBy={downVotesBy}
 				/>
 				<Text color="black" ml={0.5}>
-					<Stack direction="row" spacing={2}>
-						Dibuat Oleh
-						<Avatar
-							alt="Avatar Icon"
-							src={owner.avatar}
-							boxSize={4}
-							ml={0.5}
-							mr={0.5}
-						/>
-						{owner.name}
-					</Stack>
+					Dibuat Oleh
 				</Text>
+				<Stack direction="row" spacing={2} ml={0.5}>
+					<Avatar
+						alt="Avatar Icon"
+						src={owner.avatar}
+						boxSize={4}
+						ml={0.5}
+						mr={0.5}
+					/>
+					{owner.name}
+				</Stack>
 
 				<Text color="black" ml={0.5}>
 					{timeSince(new Date(createdAt))}
