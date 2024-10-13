@@ -8,14 +8,32 @@ on:
 jobs:
     automation-test-job:
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [16.x, 18.x] # Define Node.js versions to test against
 
         steps:
-            - uses: actions/checkout@v2
-            - name: Use Node.js ${{ matrix.node-version }}
+            # Step 1: Checkout the code
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            # Step 2: Set up Node.js based on matrix configuration
+            - name: Set up Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v2
               with:
                   node-version: ${{ matrix.node-version }}
-            - name: npm install and test
+
+            # Step 3: Cache node_modules to speed up the workflow
+            - name: Cache node_modules
+              uses: actions/cache@v2
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-
+
+            # Step 4: Install dependencies and run tests
+            - name: Install dependencies and run tests
               run: |
                   npm install
                   npm run ci:test
