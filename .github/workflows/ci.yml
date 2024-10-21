@@ -10,17 +10,14 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            # Menggunakan action checkout lokal
             - name: Checkout Repository
-              uses: ./.github/actions/checkout
+              uses: actions/checkout@v2
 
-            # Menggunakan action setup-node lokal
             - name: Use Node.js
-              uses: ./.github/actions/setup-node
+              uses: actions/setup-node@v2
               with:
                   node-version: "14"
 
-            # Menjalankan npm install dan testing
             - name: npm install and test
               run: |
                   npm install
