@@ -7,13 +7,15 @@ import CommentItem from "../comment/comment-item";
 
 expect.extend(matchers);
 
+// Test scenario: CommentItem Component Testing
 describe("CommentItem component", () => {
 	afterEach(() => {
 		cleanup();
 	});
 
+	// Test scenario: Render comment item correctly
 	it("should render the comment item correctly", async () => {
-		// Arrange
+		// Arrange: Prepare comment data with necessary properties
 		const comment = {
 			id: "1",
 			content: "This is a sample comment.",
@@ -27,14 +29,14 @@ describe("CommentItem component", () => {
 			downVotesBy: [],
 			upVote: vi.fn(),
 			downVote: vi.fn(),
-			neturalizeVote: vi.fn(),
+			neutralizeVote: vi.fn(),
 			authUser: "auth-user",
 		};
 
-		// Action
+		// Act: Render the CommentItem component with the provided comment data
 		render(<CommentItem {...comment} />);
 
-		// Assert
+		// Assert: Ensure the comment details (owner name and content) are rendered correctly
 		const nameValue = await screen.getByText(comment.owner.name);
 		expect(nameValue).toHaveTextContent("David Nasrulloh");
 		expect(screen.getByText(comment.content)).toBeInTheDocument();

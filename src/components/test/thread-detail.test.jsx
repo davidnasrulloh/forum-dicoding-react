@@ -7,13 +7,15 @@ import matchers from "@testing-library/jest-dom/matchers";
 
 expect.extend(matchers);
 
+// Test scenario: ThreadDetail Component Testing
 describe("ThreadDetail component", () => {
 	afterEach(() => {
 		cleanup();
 	});
 
+	// Test scenario: Render thread details correctly
 	it("should render the thread details correctly", async () => {
-		// Arrange
+		// Arrange: Prepare thread data with necessary properties
 		const thread = {
 			id: "1",
 			title: "Sample Thread",
@@ -29,15 +31,15 @@ describe("ThreadDetail component", () => {
 			downVotesBy: [],
 			upVoteThreadDetail: vi.fn(),
 			downVoteThreadDetail: vi.fn(),
-			neturalizeVoteThreadDetail: vi.fn(),
+			neutralizeVoteThreadDetail: vi.fn(),
 			authUser: "auth-user",
 		};
 
-		// Act
+		// Act: Render the ThreadDetailView component with the provided thread data
 		render(<ThreadDetailView {...thread} />);
 		const categoryValue = await screen.getByText(thread.category);
 
-		// Assert
+		// Assert: Ensure the thread details (category, title, body) are rendered correctly
 		expect(categoryValue).toHaveTextContent("Sample Category");
 		expect(screen.getByText(thread.category)).toBeInTheDocument();
 		expect(screen.getByText(thread.title)).toBeInTheDocument();
