@@ -6,8 +6,9 @@ import {
 import { expect, it, vi } from "vitest";
 import leaderboardApi from "../../services/leaderboardApi";
 
+// Test scenario: Dispatch actions for successful data fetch
 it("should dispatch action correctly when data fetching success", async () => {
-	// arrange
+	// Arrange: Mock successful leaderboard API response
 	const fakeLeaderboards = [
 		{
 			user: {
@@ -24,10 +25,10 @@ it("should dispatch action correctly when data fetching success", async () => {
 
 	const dispatch = vi.fn();
 
-	// action
+	// Action: Call asyncPopulateLeaderboards
 	await asyncPopulateLeaderboards()(dispatch);
 
-	// assert
+	// Assert: Ensure correct dispatch of showLoading, receiveLeaderboards, and hideLoading
 	expect(dispatch).toHaveBeenCalledWith(showLoading());
 	expect(dispatch).toHaveBeenCalledWith(
 		receiveLeaderboardsActionCreator(fakeLeaderboards)
@@ -35,8 +36,9 @@ it("should dispatch action correctly when data fetching success", async () => {
 	expect(dispatch).toHaveBeenCalledWith(hideLoading());
 });
 
+// Test scenario: Dispatch actions and log error for failed data fetch
 it("should dispatch action and log error when data fetching failed", async () => {
-	// arrange
+	// Arrange: Mock API failure
 	const fakeError = new Error("Something went wrong");
 
 	leaderboardApi.getLeaderBoards = () => Promise.reject(fakeError);
@@ -44,14 +46,14 @@ it("should dispatch action and log error when data fetching failed", async () =>
 	const dispatch = vi.fn();
 	const consoleSpy = vi.spyOn(console, "log").mockImplementation();
 
-	// action
+	// Action: Call asyncPopulateLeaderboards
 	await asyncPopulateLeaderboards()(dispatch);
 
-	// assert
+	// Assert: Ensure correct dispatch of showLoading, log error, and hideLoading
 	expect(dispatch).toHaveBeenCalledWith(showLoading());
 	expect(consoleSpy).toHaveBeenCalledWith(fakeError);
 	expect(dispatch).toHaveBeenCalledWith(hideLoading());
 
-	// cleanup
+	// Cleanup: Restore console log after test
 	consoleSpy.mockRestore();
 });

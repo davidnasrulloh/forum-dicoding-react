@@ -10,7 +10,9 @@ import threadApi from "../../services/threadApi";
 
 vi.mock("../../api/forumDicoding");
 
+// Test scenario: asyncPopulateUsersAndThreads Testing
 describe("asyncPopulateUsersAndThreads", async () => {
+	// Mocking the API methods
 	beforeEach(() => {
 		authApi.getAllUsers = vi
 			.fn()
@@ -25,6 +27,7 @@ describe("asyncPopulateUsersAndThreads", async () => {
 		vi.clearAllMocks();
 	});
 
+	// Test scenario: asyncPopulateUsersAndThreads should dispatch the correct actions and call the API methods
 	it("should dispatch the correct actions and call the API methods", async () => {
 		const users = [{ id: 1, name: "David" }];
 		const threads = [{ id: 1, title: "Thread 1" }];

@@ -15,20 +15,22 @@ const threadDummyObject = {
 	created: "2024-10-11T10:06:55.588Z",
 };
 
+// Test scenario: threadDetailReducers Testing
 describe("threadDetailReducers function", () => {
+	// Test scenario: Return initial state for unknown action
 	it("should return the initial state when given by unknown action", () => {
-		// arrange
 		const initialState = [];
 		const action = { type: "UNKNOWN" };
 
-		// action
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure state remains unchanged
 		expect(nextState).toEqual(initialState);
 	});
+
+	// Test scenario: Handle RECEIVE_THREAD_DETAIL action
 	it("should return the thread detail when given by RECEIVE_THREAD_DETAIL action", () => {
-		// arrange
 		const initialState = [];
 		const action = {
 			type: ActionType.RECEIVE_THREAD_DETAIL,
@@ -37,14 +39,15 @@ describe("threadDetailReducers function", () => {
 			},
 		};
 
-		// action
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure state contains the received thread detail
 		expect(nextState).toEqual(action.payload.threadDetail);
 	});
+
+	// Test scenario: Handle UP_VOTE_THREAD_DETAIL action
 	it("should return the thread detail with toggled UpVote when given by UP_VOTE_THREAD_DETAIL action", () => {
-		// arrange
 		const initialState = threadDummyObject;
 		const action = {
 			type: ActionType.UP_VOTE_THREAD_DETAIL,
@@ -53,18 +56,19 @@ describe("threadDetailReducers function", () => {
 			},
 		};
 
-		// action
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure the upVotesBy array is updated with the user ID
 		expect(nextState).toEqual({
 			...initialState,
 			upVotesBy: [action.payload.userId],
 			downVotesBy: [],
 		});
 	});
+
+	// Test scenario: Handle DOWN_VOTE_THREAD_DETAIL action
 	it("should return the thread detail with toggled DownVote when given by DOWN_VOTE_THREAD_DETAIL action", () => {
-		// arrange
 		const initialState = threadDummyObject;
 		const action = {
 			type: ActionType.DOWN_VOTE_THREAD_DETAIL,
@@ -72,18 +76,20 @@ describe("threadDetailReducers function", () => {
 				userId: "user-1",
 			},
 		};
-		// action
+
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure the downVotesBy array is updated with the user ID
 		expect(nextState).toEqual({
 			...initialState,
 			upVotesBy: [],
 			downVotesBy: [action.payload.userId],
 		});
 	});
+
+	// Test scenario: Handle NEUTRALIZE_VOTE_THREAD_DETAIL action
 	it("should return the thread detail without toggled UpVote and DownVote when given by NEUTRALIZE_VOTE_THREAD_DETAIL action", () => {
-		// arrange
 		const initialState = threadDummyObject;
 		const action = {
 			type: "threadDetail/neutralizeVote",
@@ -91,18 +97,20 @@ describe("threadDetailReducers function", () => {
 				userId: "user-1",
 			},
 		};
-		// action
+
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure both upVotesBy and downVotesBy arrays are cleared
 		expect(nextState).toEqual({
 			...initialState,
 			upVotesBy: [],
 			downVotesBy: [],
 		});
 	});
+
+	// Test scenario: Handle CREATE_COMMENT action
 	it("should return the thread detail with new comment when given by CREATE_COMMENT action", () => {
-		// arrange
 		const initialState = threadDummyObject;
 		const action = {
 			type: ActionType.CREATE_COMMENT,
@@ -117,17 +125,19 @@ describe("threadDetailReducers function", () => {
 				},
 			},
 		};
-		// action
+
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure the new comment is added to the comments array
 		expect(nextState).toEqual({
 			...initialState,
 			comments: [action.payload.comment, ...initialState.comments],
 		});
 	});
+
+	// Test scenario: Handle UP_VOTE_COMMENT action
 	it("should return the thread detail with UpVote toggled comment when given by UP_VOTE_COMMENT action", () => {
-		// arrange
 		const initialState = {
 			...threadDummyObject,
 			comments: [
@@ -154,10 +164,10 @@ describe("threadDetailReducers function", () => {
 			},
 		};
 
-		// action
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure the comment's upVotesBy array is updated
 		expect(nextState).toEqual({
 			...initialState,
 			comments: [
@@ -169,8 +179,9 @@ describe("threadDetailReducers function", () => {
 			],
 		});
 	});
+
+	// Test scenario: Handle DOWN_VOTE_COMMENT action
 	it("should return the thread detail with DownVote toggled comment when given by DOWN_VOTE_COMMENT action", () => {
-		// arrange
 		const initialState = {
 			...threadDummyObject,
 			comments: [
@@ -197,10 +208,10 @@ describe("threadDetailReducers function", () => {
 			},
 		};
 
-		// action
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure the comment's downVotesBy array is updated
 		expect(nextState).toEqual({
 			...initialState,
 			comments: [
@@ -212,8 +223,9 @@ describe("threadDetailReducers function", () => {
 			],
 		});
 	});
+
+	// Test scenario: Handle NEUTRALIZE_VOTE_COMMENT action
 	it("should return the thread detail without toggled UpVote and DownVote comment when given by NEUTRALIZE_VOTE_COMMENT action", () => {
-		// arrange
 		const initialState = {
 			...threadDummyObject,
 			comments: [
@@ -240,10 +252,10 @@ describe("threadDetailReducers function", () => {
 			},
 		};
 
-		// action
+		// Action: Call threadDetailReducer with initialState and action
 		const nextState = threadDetailReducer(initialState, action);
 
-		// assert
+		// Assert: Ensure both upVotesBy and downVotesBy arrays are cleared for the comment
 		expect(nextState).toEqual({
 			...initialState,
 			comments: [
