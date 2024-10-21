@@ -10,16 +10,17 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            # Menggunakan fork dari davidnasrulloh untuk checkout
-            - uses: davidnasrulloh/checkout@master # Pastikan branch dari fork adalah 'master'
+            # Menggunakan action checkout lokal
+            - name: Checkout Repository
+              uses: ./.github/actions/checkout
 
-            # Menggunakan fork dari davidnasrulloh untuk setup-node
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: davidnasrulloh/setup-node@master # Pastikan branch dari fork adalah 'master'
+            # Menggunakan action setup-node lokal
+            - name: Use Node.js
+              uses: ./.github/actions/setup-node
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: "14"
 
-            # Langkah install dan test dengan npm
+            # Menjalankan npm install dan testing
             - name: npm install and test
               run: |
                   npm install
