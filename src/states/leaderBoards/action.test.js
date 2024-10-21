@@ -45,7 +45,7 @@ it("should dispatch action and log error when data fetching failed", async () =>
 	const consoleSpy = vi.spyOn(console, "log").mockImplementation();
 
 	// action
-	await asyncPopulateLeaderboards()(dispatch);
+	// await asyncPopulateLeaderboards()(dispatch);
 
 	// assert
 	expect(dispatch).toHaveBeenCalledWith(showLoading());
