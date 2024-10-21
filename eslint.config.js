@@ -4,7 +4,6 @@ import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import airbnb from "eslint-config-airbnb";
-import prettier from "eslint-config-prettier";
 import prettierPlugin from "eslint-plugin-prettier";
 
 export default [
@@ -44,5 +43,4 @@ export default [
 			"no-undef": "off",
 		},
 	},
-	...prettier,
 ];
